@@ -1,2 +1,11 @@
 # rfid-reader-http
-PC/SC HTTP wrapper for reading from a remote card reader (RFID &amp; NFC).
+
+PC/SC lite HTTP wrapper for reading from a remote card reader (RFID &amp; NFC).
+
+## Install
+
+* `npm install`
+
+## Usage
+
+* `node index.js`

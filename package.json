@@ -1,0 +1,32 @@
+{
+  "name": "rfid-reader-http",
+  "version": "0.0.1",
+  "description": "PC/SC lite HTTP wrapper for reading from a remote card reader (RFID and NFC).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goodotcom/rfid-reader-http.git"
+  },
+  "keywords": [
+    "pcsc",
+    "pcsc-lite",
+    "rfid",
+    "nfc",
+    "http",
+    "rest"
+  ],
+  "author": "Goo.com Srl <goo@goodotcom.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goodotcom/rfid-reader-http/issues"
+  },
+  "homepage": "https://github.com/goodotcom/rfid-reader-http#readme",
+  "devDependencies": {
+    "cors": "^2.7.1",
+    "express": "^4.12.4",
+    "pcsclite": "^0.4.0"
+  }
+}
