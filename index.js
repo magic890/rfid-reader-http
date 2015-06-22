@@ -94,13 +94,13 @@ pcsc.on('reader', function(reader) {
                                 console.log('Error(', reader.name, '):', err);
                             }
                             else {
-                                console.log('Status(', reader.name, '): Read:', data, ' toString:', data.readUIntBE(0, 6).toString(16));
-
-                                lastRead = data.readUIntBE(0, 6).toString(16);
+                                /*
+                                    buf.readUIntLE(offset, byteLength[, noAssert])
+                                    Set noAssert to true to skip validation of value and offset. Defaults to false.
+                                */
+                                lastRead = data.readUIntBE(0, 6, true).toString(16);
                                 
-                                /* Release resources.
-                                reader.close();
-                                pcsc.close(); */
+                                console.log('Status(', reader.name, '): Read:', data, ' toString:', lastRead);
                             }
                         });
                     }
@@ -111,6 +111,10 @@ pcsc.on('reader', function(reader) {
 
     reader.on('end', function() {
         console.log('Status(', reader.name, '): Removed');
+
+        // Release resources.
+        reader.close();
+        pcsc.close();
     });
 });
 
