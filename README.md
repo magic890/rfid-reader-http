@@ -20,10 +20,11 @@ For running the installation step, due to its dependency from [node-pcsclite](ht
         sudo apt-get install libusb-dev libpcsclite-dev
     
         cd /opt/
-        sudo wget https://libnfc.googlecode.com/files/libnfc-1.7.0-rc7.tar.gz
-        sudo tar -xvzf libnfc-1.7.0-rc7.tar.gz &&
-        cd libnfc-1.7.0-rc7.tar.gz
-        sudo ./configure
+        sudo wget https://github.com/nfc-tools/libnfc/archive/libnfc-1.7.1.zip
+        sudo unzip libnfc-1.7.1.zip
+        cd libnfc-libnfc-1.7.1/
+        sudo autoreconf -vis
+        sudo ./configure --with-drivers=all
         sudo make
         sudo make install
     
@@ -33,7 +34,7 @@ For running the installation step, due to its dependency from [node-pcsclite](ht
             
         1. To fix: `error while loading shared libraries: libnfc.so.4: cannot open shared object file: No such file or directory` ([reference](http://seckev.blog.com/2013/04/17/installation-mfterm-with-acr122u-on-kali-linux-system/))
 
-                echo '/usr/local/lib' | sudo tee -a /etc/ld.so.conf.d/usr-local-lib.conf && ldconfig
+                echo '/usr/local/lib' | sudo tee -a /etc/ld.so.conf.d/usr-local-lib.conf && sudo ldconfig
     
 
 ## Install
