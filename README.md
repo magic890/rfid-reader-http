@@ -1,10 +1,17 @@
 # rfid-reader-http
 
-PC/SC lite HTTP wrapper for reading from a remote card reader (RFID &amp; NFC).
+PC/SC lite HTTP wrapper for reading from a card reader (RFID &amp; NFC).
+
+## Tested card reader
+
+* ACS ACR122 (ACR122U-A9)
 
 ## Prerequisites
 
 For running the installation step, due to its dependency from [node-pcsclite](https://github.com/santigimeno/node-pcsclite), this project requires [node-gyp](https://github.com/TooTallNate/node-gyp), so please read carefully and satisfy their [installation requirements](https://github.com/TooTallNate/node-gyp#installation), otherwise it may fails compiling the node module.
+
+You may have to install the proper driver for your card reader.
+    * [ACS ACR122U drivers](http://www.acs.com.hk/en/driver/3/acr122u-usb-nfc-reader/)
 
 ### Requirements installation
 
@@ -17,7 +24,7 @@ For running the installation step, due to its dependency from [node-pcsclite](ht
     
 2. Install PC/SC and libnfc (references: [nfc-tools](http://nfc-tools.org/index.php?title=Libnfc#Debian_.2F_Ubuntu), [libnfc](https://github.com/nfc-tools/libnfc)):
 
-        sudo apt-get install pcscd libusb-dev libpcsclite1 libpcsclite-dev
+        sudo apt-get install pcscd libusb-dev libpcsclite1 libpcsclite-dev dh-autoreconf
     
         cd /opt/
         sudo wget https://github.com/nfc-tools/libnfc/archive/libnfc-1.7.1.zip
@@ -40,12 +47,12 @@ For running the installation step, due to its dependency from [node-pcsclite](ht
 
             echo '/usr/local/lib' | sudo tee -a /etc/ld.so.conf.d/usr-local-lib.conf && sudo ldconfig
 
-    2. If you have a kernel version > 3.5, probably `pcscd` and also `nfc-list` will report this error: `Unable to claim USB interface (Device or resource busy)` due to race condition with `pn533`.
+    2. If you have kernel version > 3.5, probably `pcscd` and also `nfc-list` will report this error: `Unable to claim USB interface (Device or resource busy)` due to the automatic load of `pn533` driver.
 
         To read the `pcscd` dameon output you can run it using: `pcscd -f -d`
 
         1. Check which kernel version is installed: `uname -a`
-        2. Blacklist `pn533` and `nfc` drivers:
+        2. Blacklist `pn533` and `nfc` drivers (references: [Arch Linux wiki Touchatag RFID Reader](https://wiki.archlinux.org/index.php/Touchatag_RFID_Reader), [nfc-tools forum](http://forums.nfc-tools.org/post/5308/#p5308)):
 
                 sudo nano /etc/modprobe.d/blacklist-libnfc.conf
 
@@ -62,8 +69,11 @@ For running the installation step, due to its dependency from [node-pcsclite](ht
 
 ## Install
 
-* `npm install`
+1. `git clone git@github.com:goodotcom/rfid-reader-http.git`
+2. `cd rfid-reader-http`
+3. `npm install`
 
 ## Usage
 
-* `node index.js`
+* Run as process: `node index.js`
+* Run in background (detached output): `nohup node index.js &`
