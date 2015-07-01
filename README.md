@@ -15,9 +15,9 @@ For running the installation step, due to its dependency from [node-pcsclite](ht
         curl --silent --location https://deb.nodesource.com/setup_0.12 | sudo bash -
         sudo apt-get install --yes nodejs
     
-2. Install PC/SC and libnfc ([official guide](http://nfc-tools.org/index.php?title=Libnfc#Debian_.2F_Ubuntu)):
+2. Install PC/SC and libnfc (references: [nfc-tools](http://nfc-tools.org/index.php?title=Libnfc#Debian_.2F_Ubuntu), [libnfc](https://github.com/nfc-tools/libnfc)):
 
-        sudo apt-get install libusb-dev libpcsclite-dev
+        sudo apt-get install pcscd libusb-dev libpcsclite-dev
     
         cd /opt/
         sudo wget https://github.com/nfc-tools/libnfc/archive/libnfc-1.7.1.zip
