@@ -11,7 +11,8 @@ PC/SC lite HTTP wrapper for reading from a card reader (RFID &amp; NFC).
 For running the installation step, due to its dependency from [node-pcsclite](https://github.com/santigimeno/node-pcsclite), this project requires [node-gyp](https://github.com/TooTallNate/node-gyp), so please read carefully and satisfy their [installation requirements](https://github.com/TooTallNate/node-gyp#installation), otherwise it may fails compiling the node module.
 
 You may have to install the proper driver for your card reader.
-    * [ACS ACR122U drivers](http://www.acs.com.hk/en/driver/3/acr122u-usb-nfc-reader/)
+
+   * [ACS ACR122U drivers](http://www.acs.com.hk/en/driver/3/acr122u-usb-nfc-reader/)
 
 ### Requirements installation
 
