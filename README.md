@@ -16,7 +16,15 @@ You may have to install the proper driver for your card reader.
 
 ### Requirements installation
 
+#### Mac OS X
+
+1. Download the ACS ACR122U Drivers for Mac OS X 10.x via the [download page](http://www.acs.com.hk/en/driver/3/acr122u-usb-nfc-reader/) or via direct link for [PC/SC Driver Installer 1.1.0 (Mac 10.5, Mac 10.6, Mac 10.7, Mac 10.8, Mac 10.9, Mac 10.10) (2014-09-17 306KB)](http://www.acs.com.hk/download-driver-unified/5133/ACS-Unified-INST-MacOSX-110-P.zip). You have to install it even if the installer is not properly signed.
+
+    It will install the useful driver in: `/usr/libexec/SmartCardServices/drivers/ifd-acsccid.bundle`
+
 #### Raspberry Pi (ARM) (Debian)
+
+*NOTE: At this time, Raspberry Pi 1 models have issue running NodeJS, due to wrong architecture identification (ARMv7 instead of ARMv6). This guide works properly on Raspberry Pi 2 (refence [1](http://raspberrypi.stackexchange.com/a/30068/32403) [2](https://github.com/v8/v8-git-mirror/blob/master/src/base/cpu.cc#L483-L499)).*
 
 1. Install the latest version of NodeJS and npm, as stated in the official [guide](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager#debian-and-ubuntu-based-linux-distributions):
 
@@ -70,7 +78,7 @@ You may have to install the proper driver for your card reader.
 
 ## Install
 
-1. `git clone git@github.com:goodotcom/rfid-reader-http.git`
+1. `git clone https://github.com/goodotcom/rfid-reader-http.git`
 2. `cd rfid-reader-http`
 3. `npm install`
 
